@@ -38,7 +38,7 @@
   #splash.hide { display:none; }
 </style>
 </head>
-<body>
+<body><audio id="bgm" src="bgm_cinemato.mp3" loop></audio>
 <canvas id="view"></canvas>
 <div id="stat">loading…</div>
 <div id="splash">
@@ -481,7 +481,11 @@
     document.getElementById('hud').classList.toggle('mini');
     document.getElementById('toggle').textContent = document.getElementById('hud').classList.contains('mini') ? 'More' : 'Less';
   });
-  bind('play', () => document.getElementById('splash').classList.add('hide'));
+  bind('play', () => {
+  document.getElementById('splash').classList.add('hide');
+  document.getElementById('bgm').volume = 0.28;
+  document.getElementById('bgm').play();
+}); document.getElementById('splash').classList.add('hide'));
   bind('melon', () => spawnFruit('melon', 40+Math.random()*(w-80), 70));
   bind('apple', () => spawnFruit('apple', 40+Math.random()*(w-80), 70));
   bind('lemon', () => spawnFruit('lemon', 40+Math.random()*(w-80), 70));
